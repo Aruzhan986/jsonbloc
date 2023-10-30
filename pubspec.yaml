@@ -42,12 +42,18 @@ dependencies:
   lottie: ^2.6.0
   curved_navigation_bar: ^1.0.3
   equatable: ^2.0.5
+  dio: ^5.3.3
+  retrofit: ^4.0.3
+  logger: ^2.0.2+1
+  qr_flutter: ^4.0.1
+  qr: ^3.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^6.7.1
   build_runner: ^2.4.6
+  retrofit_generator: ^8.0.2
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -71,6 +77,7 @@ flutter:
   assets:
     - assets/lab91.json
     - assets/lab92.json
+    - assets/frame.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

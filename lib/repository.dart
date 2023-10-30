@@ -1,17 +1,18 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
+import 'package:flutter_labour9/api.dart';
+import 'package:flutter_labour9/ept/user.dart';
 
 class UserRepository {
-  final String baseUrl;
+  final ApiService apiService;
 
-  UserRepository({required this.baseUrl});
+  UserRepository(Dio dio)
+      : apiService =
+            ApiService(dio, baseUrl: 'https://jsonplaceholder.typicode.com');
 
-  Future<List<dynamic>> fetchUsers() async {
-    final response = await http.get(Uri.parse('$baseUrl/users'));
-    if (response.statusCode == 200) {
-      return json.decode(response.body);
-    } else {
-      throw Exception('Failed to load users.');
-    }
+  Future<List<User>> fetchUsers() async {
+    return await apiService.getUsers();
   }
 }
+
+final dio = Dio();
+final userRepository = UserRepository(dio);

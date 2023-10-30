@@ -14,9 +14,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final UserRepository userRepository =
-      UserRepository(baseUrl: 'https://jsonplaceholder.typicode.com');
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,9 +43,7 @@ class _ClassState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Моя Bottom Bar App"),
-      ),
+      appBar: AppBar(),
       body: _pages[_currentIndex],
       bottomNavigationBar: CurvedNavigationBar(
         color: Colors.yellow,
@@ -132,29 +127,29 @@ class Games extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${user['name']} (${user['username']})',
+                        '${user.name} (${user.username})',
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: _getRandomColor()),
                       ),
                       SizedBox(height: 8),
-                      Text('Email: ${user['email']}'),
-                      Text('Phone: ${user['phone']}'),
-                      Text('Website: ${user['website']}'),
+                      Text('Email: ${user.email}'),
+                      Text('Phone: ${user.phone}'),
+                      Text('Website: ${user.website}'),
                       Divider(color: _getRandomColor()),
                       Text('Company:'),
-                      Text('Name: ${user['company']['name']}'),
-                      Text('CatchPhrase: ${user['company']['catchPhrase']}'),
-                      Text('BS: ${user['company']['bs']}'),
+                      Text('Name: ${user.company.name}'),
+                      Text('CatchPhrase: ${user.company.catchPhrase}'),
+                      Text('BS: ${user.company.bs}'),
                       Divider(color: _getRandomColor()),
                       Text('Address:'),
-                      Text('Street: ${user['address']['street']}'),
-                      Text('Suite: ${user['address']['suite']}'),
-                      Text('City: ${user['address']['city']}'),
-                      Text('Zipcode: ${user['address']['zipcode']}'),
-                      Text('Lat: ${user['address']['geo']['lat']}'),
-                      Text('Lng: ${user['address']['geo']['lng']}'),
+                      Text('Street: ${user.address.street}'),
+                      Text('Suite: ${user.address.suite}'),
+                      Text('City: ${user.address.city}'),
+                      Text('Zipcode: ${user.address.zipcode}'),
+                      Text('Lat: ${user.address.geo.lat}'),
+                      Text('Lng: ${user.address.geo.lng}'),
                     ],
                   ),
                 ),
@@ -173,8 +168,13 @@ class Games extends StatelessWidget {
 class User extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("Account"),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(),
+        body: Center(
+          child: Image.asset('assets/frame.png'),
+        ),
+      ),
     );
   }
 }
